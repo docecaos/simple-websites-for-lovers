@@ -6,22 +6,40 @@
     <title><3</title>
 
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    <div id="image-box">
-        <img src="assets/foto2.jpeg" alt="nos aí">
+
+    <div id="bnt-box">
+        <div id="emoji-box"></div>
+        <div id="text">Quer sair comigo?</div>
+        <button id="sim" onmouseover="sim()" onmouseout="normal()">Sim</button>
+        <button id="nao" onmouseover="nao()" onmouseout="normal()" onclick="substituirBnt()">Não</button>
+
+        <button id="nao2">Não</button>
     </div>
 
-    <div id="box">
-        <h1>Você quer namorar comigo?</h1>
-        <div id="bnt-box">
-                <button>Sim</button>
-                <button onclick="no()" id="falseBnt">Não</button>
-        </div>
-    </div>
+    <script>
+        var emoji = document.getElementById('emoji-box');
 
+        function sim() {
+            emoji.style.backgroundImage = "url(assets/pls.png)";
+        }
 
-    <button onclick="no()" onmouseover="moveButton(this)" id="noBnt">Não</button>
+        function nao() {
+            emoji.style.backgroundImage = "url(assets/sus.png)";
+        }
+
+        function normal() {
+            emoji.style.backgroundImage = "url(assets/rosa.png)"; 
+        }
+
+        function substituirBnt(){
+            document.getElementById('nao').style.display = 'none';
+            document.getElementById('nao2').style.display = 'block';
+
+            emoji.style.backgroundImage = "url(assets/sus.png)";
+        }
+
+    </script>
 </body>
 </html>
