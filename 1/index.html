@@ -4,42 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><3</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <span id="text-box">text box</span>
     <div id="bnt-box">
         <div id="emoji-box"></div>
         <div id="text">Quer sair comigo?</div>
-        <button id="sim" onmouseover="sim()" onmouseout="normal()">Sim</button>
-        <button id="nao" onmouseover="nao()" onmouseout="normal()" onclick="substituirBnt()">Não</button>
-
-        <button id="nao2">Não</button>
+        <button id="sim" onmouseover="sim()" onmouseout="etapas()">Sim</button>
+        <button id="nao" onmouseover="nao(); moverBotao()" onmouseout="etapas()" onclick="clickNao()">Não</button>
     </div>
 
+    <button id="nao2" onmouseover="moverBotao()" onclick="clickNao()">Não</button>
+
     <script>
+        var etapa = 0;
         var emoji = document.getElementById('emoji-box');
+        var emojiSim = "url(assets/pls.png)";
+        var emojiNao = "url(assets/sus.png)";
+        var chat = document.getElementById("text-box");
+
+        const botao = document.getElementById('nao2');
+
+        function moverBotao() {
+            if (etapa === 3) {
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                const botaoWidth = botao.offsetWidth;
+                const botaoHeight = botao.offsetHeight;
+
+                let novaTop = Math.random() * (windowHeight - botaoHeight);
+                let novaLeft = Math.random() * (windowWidth - botaoWidth);
+
+                novaTop = Math.max(0, Math.min(novaTop, windowHeight - botaoHeight));
+                novaLeft = Math.max(0, Math.min(novaLeft, windowWidth - botaoWidth));
+
+                botao.style.top = `${novaTop}px`;
+                botao.style.left = `${novaLeft}px`;
+            }
+        }
 
         function sim() {
-            emoji.style.backgroundImage = "url(assets/pls.png)";
+            emoji.style.backgroundImage = emojiSim;
         }
 
         function nao() {
-            emoji.style.backgroundImage = "url(assets/sus.png)";
+            emoji.style.backgroundImage = emojiNao;
         }
 
-        function normal() {
-            emoji.style.backgroundImage = "url(assets/rosa.png)"; 
+        function etapas() {
+            switch(etapa) {
+                case 1:
+                    emoji.style.backgroundImage = "url(assets/etapa1.png)"; 
+                    emojiSim = "url(assets/sim2.png)"; 
+                    emojiNao = "url(assets/nao2.png)"; 
+                    chat.textContent = "acho que clicou errado kkkk vou te dar mais uma chance";
+                    chat.style.opacity = "1";
+                    setInterval(() => {
+                        chat.style.opacity = "0";
+                    }, 5000);
+                    break;
+
+                case 2:
+                    emoji.style.backgroundImage = "url(assets/etapa2.png)"; 
+                    emojiSim = "url(assets/sim3.png)"; 
+                    emojiNao = "url(assets/nao3.png)"; 
+                    chat.textContent = "clicou errado de novo né??? cuidado pra não errar dessa vez";
+                    chat.style.opacity = "1";
+                    setInterval(() => {
+                        chat.style.opacity = "0";
+                    }, 5000);
+                    break;
+
+                case 3:
+                    emoji.style.backgroundImage = "url(assets/etapa3.png)"; 
+                    emojiSim = "url(assets/sim4.png)"; 
+                    emojiNao = "url(assets/nao3.png)"; 
+                    chat.textContent = "Vou te ajudar pra não clicar mais sem querer...";
+                    chat.style.opacity = "1";
+
+
+                    document.getElementById("nao").style.display = 'none';
+                    botao.style.display = 'block';
+
+                    setInterval(() => {
+                        chat.style.opacity = "0";
+                    }, 5000);
+                    break;
+
+                default:
+                    emoji.style.backgroundImage = "url(assets/rosa.png)"; 
+            }
         }
 
-        function substituirBnt(){
-            document.getElementById('nao').style.display = 'none';
-            document.getElementById('nao2').style.display = 'block';
-
-            emoji.style.backgroundImage = "url(assets/sus.png)";
+        function clickNao() {
+            etapa++;
+            return etapa;
         }
-
     </script>
 </body>
 </html>
