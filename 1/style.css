@@ -18,8 +18,10 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url(assets/foto2.jpeg);
-  backdrop-filter: blur(10px) brightness(50%);
+  background-color: rgb(255, 80, 100);
+  background-image: url(assets/hearth.png);
+  backdrop-filter: blur(5px);
+  background-size: 200px;
 }
 
 * div {
