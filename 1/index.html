@@ -11,11 +11,21 @@
     <div id="bnt-box">
         <div id="emoji-box"></div>
         <div id="text">Quer sair comigo?</div>
-        <button id="sim" onmouseover="sim()" onmouseout="etapas()">Sim</button>
+        <button id="sim" onmouseover="sim()" onmouseout="etapas()" onclick="clickSim()">Sim</button>
         <button id="nao" onmouseover="nao(); moverBotao()" onmouseout="etapas()" onclick="clickNao()">Não</button>
     </div>
 
     <button id="nao2" onmouseover="moverBotao()" onclick="clickNao()">Não</button>
+
+    <div id="location">
+        <img src="assets/grazie.png" alt="grazie">
+        <span>me encontre aqui as 05:00 da manhã</span>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14693.568882448026!2d-43.19408978554767!3d-22.972600267338812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd523d20f9c53%3A0x693c6132635e6b0d!2sCopacabana%2C%20Rio%20de%20Janeiro%20-%20State%20of%20Rio%20de%20Janeiro!5e0!3m2!1sen!2sbr!4v1742546764628!5m2!1sen!2sbr" id="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <span>dia: 01/01/2025</span>
+        <span>Aguardo ansiosamente por você ❤</span>
+    </div>
 
     <script>
         var etapa = 0;
@@ -23,6 +33,7 @@
         var emojiSim = "url(assets/pls.png)";
         var emojiNao = "url(assets/sus.png)";
         var chat = document.getElementById("text-box");
+        var local = document.getElementById("location");
 
         const botao = document.getElementById('nao2');
 
@@ -62,7 +73,7 @@
                     chat.style.opacity = "1";
                     setInterval(() => {
                         chat.style.opacity = "0";
-                    }, 5000);
+                    }, 10000);
                     break;
 
                 case 2:
@@ -89,7 +100,7 @@
 
                     setInterval(() => {
                         chat.style.opacity = "0";
-                    }, 5000);
+                    }, 10000);
                     break;
 
                 default:
@@ -100,6 +111,12 @@
         function clickNao() {
             etapa++;
             return etapa;
+        }
+
+        function clickSim() {
+            local.style.height = "80%";
+            local.style.padding = "0px 20px 20px 20px";      
+        
         }
     </script>
 </body>
