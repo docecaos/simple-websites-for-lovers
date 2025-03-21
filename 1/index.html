@@ -11,11 +11,11 @@
     <div id="bnt-box">
         <div id="emoji-box"></div>
         <div id="text">Quer sair comigo?</div>
-        <button id="sim" onmouseover="sim()" onmouseout="etapas()" onclick="clickSim()">Sim</button>
-        <button id="nao" onmouseover="nao(); moverBotao()" onmouseout="etapas()" onclick="clickNao()">Não</button>
+        <button id="sim" onmouseover="sim()" onmouseout="etapas()" ontouchstart="sim()" ontouchend="etapas()" onclick="clickSim()">Sim</button>
+        <button id="nao" onmouseover="nao(); moverBotao()" onmouseout="etapas()" ontouchstart="nao(); moverBotao()" ontouchend="etapas()" onclick="clickNao()">Não</button>
     </div>
 
-    <button id="nao2" onmouseover="moverBotao()" onclick="clickNao()">Não</button>
+    <button id="nao2" onmouseover="moverBotao()" ontouchstart="moverBotao()">Não</button>
 
     <div id="location">
         <img src="assets/grazie.png" alt="grazie">
@@ -25,6 +25,12 @@
 
         <span>dia: 01/01/2025</span>
         <span>Aguardo ansiosamente por você ❤</span>
+    </div>
+
+
+    <div id="loading-screen">
+        <div class="heart-loader"></div>
+        <p>Carregando...</p>
     </div>
 
     <script>
@@ -94,7 +100,6 @@
                     chat.textContent = "Vou te ajudar pra não clicar mais sem querer...";
                     chat.style.opacity = "1";
 
-
                     document.getElementById("nao").style.display = 'none';
                     botao.style.display = 'block';
 
@@ -116,8 +121,14 @@
         function clickSim() {
             local.style.height = "80%";
             local.style.padding = "0px 20px 20px 20px";      
-        
         }
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+    }, 2000);
+});
     </script>
 </body>
 </html>
