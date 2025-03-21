@@ -2,8 +2,7 @@
 
 Ei, tudo bem? Criei este projeto com muito carinho para quem quer surpreender a namorada(o) com algo especial! 💕
 
-## O que é isso?  
-São várias homenagens interativas para deixar o dia do seu amor mais feliz! Tem animações fofas, mensagens personalizáveis e interações divertidas. Tudo **100% gratuito** para você usar como quiser! Pode baixar, modificar e até falar que foi você quem fez (não conto pra ninguém! 😆).  
+Tudo **100% gratuito** para você usar como quiser! Pode baixar, modificar e até falar que foi você quem fez (não conto pra ninguém! 😆).  
 
 ## IMPORTANTE 
 Se quiser apoiar esse projeto e me ajudar a comprar um novo ventilador (o meu queimou 😭), fiz um **tutorial por apenas R$5** explicando como baixar, personalizar, e hospedar esses códigos e criar seus próprios sites (é o valor de um salgado poxa). Mesmo que já saiba programar, se puder comprar, eu ficaria muito feliz pela ajuda. 🫶  
